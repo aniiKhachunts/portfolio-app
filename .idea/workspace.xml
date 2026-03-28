@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="635adba4-22d9-40e8-8ade-3623dba8d35b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ani-portfolio/public/fonts/ChakraPetch-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ani-portfolio/src/components/Starfield.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ani-portfolio/src/components/ThreeScene.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ani-portfolio/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ani-portfolio/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ani-portfolio/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ani-portfolio/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ani-portfolio/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ani-portfolio/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ani-portfolio/src/components/contact-section.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ani-portfolio/src/components/contact-section.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ani-portfolio/src/components/custom-cursor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ani-portfolio/src/components/custom-cursor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ani-portfolio/src/components/hero-section.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ani-portfolio/src/components/hero-section.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ani-portfolio/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/ani-portfolio/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ani-portfolio/src/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/ani-portfolio/src/theme.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ani-portfolio" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="35QpKSG4jYCkaEfcV0snJ8ZZMCZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.localhost:3000.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ani/WebstormProjects/ani-khachunts/ani-portfolio/public/fonts&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/ani/WebstormProjects/ani-khachunts/ani-portfolio/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ani-portfolio/public/fonts" />
+      <recent name="$PROJECT_DIR$/ani-portfolio/src/components" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="localhost:3000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.localhost:3000" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.27397.92" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="635adba4-22d9-40e8-8ade-3623dba8d35b" name="Changes" comment="" />
+      <created>1763052086380</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763052086380</updated>
+      <workItem from="1763052087444" duration="11640000" />
+      <workItem from="1766139117010" duration="40000" />
+      <workItem from="1774629482657" duration="167000" />
+      <workItem from="1774629736148" duration="909000" />
+      <workItem from="1774630648957" duration="1829000" />
+      <workItem from="1774633168418" duration="2860000" />
+      <workItem from="1774636576447" duration="1078000" />
+      <workItem from="1774637793298" duration="1107000" />
+      <workItem from="1774639647814" duration="100000" />
+      <workItem from="1774686415931" duration="55000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

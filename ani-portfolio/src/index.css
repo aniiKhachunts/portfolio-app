@@ -1,0 +1,111 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: auto;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #FFDF00, #00D1FF);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00D1FF, #FFDF00);
+}
+
+/* Selection styling */
+::selection {
+    background-color: rgba(255, 223, 0, 0.3);
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background-color: rgba(255, 223, 0, 0.3);
+    color: #ffffff;
+}
+
+/* Glassmorphism utilities */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Prevent text selection on interactive elements */
+button, a {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.handwritten {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.startrail-cursor {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 200ms ease;
+}
+
+.startrail-cursor.is-visible {
+    opacity: 1;
+}
+
+.startrail-cursor.is-active .startrail-core {
+    box-shadow:
+            0 0 14px rgba(0,89,89,1),
+            0 0 34px rgba(0,89,89,0.7),
+            0 0 90px rgba(0,89,89,0.35);
+    transform: translate3d(-9999px, -9999px, 0) scale(1.12);
+}
+
+.startrail-core {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;
+    border-radius: 999px;
+    opacity: 0;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.45) 35%, rgba(255,255,255,0) 70%);
+    filter: drop-shadow(0 0 12px rgba(255,255,255,0.45));
+    transform: translate3d(-9999px, -9999px, 0);
+}
+
+.startrail-cursor.is-visible .startrail-core {
+    opacity: 1;
+}
+
+.startrail-cursor.is-active .startrail-core {
+    filter: drop-shadow(0 0 18px rgba(255,255,255,0.65));
+}
+    
