@@ -8,8 +8,7 @@ export function MusicianSection() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
     const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
-    const [dataArray, setDataArray] = useState<Uint8Array | null>(null);
-    const animationRef = useRef<number>(0);
+    const [dataArray, setDataArray] = useState<Uint8Array<ArrayBuffer> | null>(null); const animationRef = useRef<number>(0);
 
     useEffect(() => {
         return () => {
@@ -74,7 +73,7 @@ export function MusicianSection() {
     useEffect(() => {
         if (isPlaying && analyser && dataArray) {
             const draw = () => {
-                analyser.getByteFrequencyData(dataArray);
+                analyser.getByteFrequencyData(dataArray as Uint8Array<ArrayBuffer>);
                 animationRef.current = requestAnimationFrame(draw);
             };
             draw();
