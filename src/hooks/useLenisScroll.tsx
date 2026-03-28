@@ -1,9 +1,5 @@
 import { useEffect } from "react";
-<<<<<<< HEAD
 import Lenis from "lenis"
-=======
-import Lenis from "@studio-freight/lenis";
->>>>>>> cd58224c06944e71269eb2298ed19852f41a71a2
 
 export function useLenisScroll() {
   useEffect(() => {
