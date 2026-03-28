@@ -1,7 +1,6 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
-@import "tailwindcss";
 
 /* Smooth scrolling */
 html {
@@ -53,7 +52,8 @@ html {
 }
 
 /* Prevent text selection on interactive elements */
-button, a {
+button,
+a {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -81,9 +81,9 @@ button, a {
 
 .startrail-cursor.is-active .startrail-core {
     box-shadow:
-            0 0 14px rgba(0,89,89,1),
-            0 0 34px rgba(0,89,89,0.7),
-            0 0 90px rgba(0,89,89,0.35);
+        0 0 14px rgba(0, 89, 89, 1),
+        0 0 34px rgba(0, 89, 89, 0.7),
+        0 0 90px rgba(0, 89, 89, 0.35);
     transform: translate3d(-9999px, -9999px, 0) scale(1.12);
 }
 
@@ -97,8 +97,8 @@ button, a {
     margin-top: -5px;
     border-radius: 999px;
     opacity: 0;
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.45) 35%, rgba(255,255,255,0) 70%);
-    filter: drop-shadow(0 0 12px rgba(255,255,255,0.45));
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.45) 35%, rgba(255, 255, 255, 0) 70%);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.45));
     transform: translate3d(-9999px, -9999px, 0);
 }
 
@@ -107,6 +107,5 @@ button, a {
 }
 
 .startrail-cursor.is-active .startrail-core {
-    filter: drop-shadow(0 0 18px rgba(255,255,255,0.65));
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.65));
 }
-    
