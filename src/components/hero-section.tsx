@@ -8,7 +8,7 @@ export function HeroSection() {
     const leftRef = useRef<HTMLDivElement | null>(null)
     const railRef = useRef<HTMLDivElement | null>(null)
 
-    const [leftH, setLeftH] = useState<number | null>(null)
+    const [, setLeftH] = useState<number | null>(null)
     const [railH, setRailH] = useState<number>(0)
 
     useEffect(() => {

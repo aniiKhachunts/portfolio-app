@@ -453,7 +453,7 @@ export const projects: Project[] = [
         theme: {
             kind: "fluxsim",
             base: "#05090B",
-            aaccent: "#2AF7DE",
+            accent: "#2AF7DE",
             accent2: "#22D3EE",
             glow1: "rgba(42,247,222,0.22)",
             glow2: "rgba(34,211,238,0.16)",
