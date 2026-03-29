@@ -109,3 +109,9 @@ a {
 .startrail-cursor.is-active .startrail-core {
     filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.65));
 }
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}

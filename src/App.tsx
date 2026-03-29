@@ -32,12 +32,29 @@ export default function App() {
                 <ScrollToTop />
 
                 <main>
-                    <HeroSection />
-                    <AIPhilosophySection />
-                    <ProjectConstellationSection />
-                    <SkillsHarmonySection />
-                    <MusicianSection />
-                    <ContactSection />
+                    <section id="hero">
+                        <HeroSection />
+                    </section>
+
+                    <section id="philosophy">
+                        <AIPhilosophySection />
+                    </section>
+
+                    <section id="projects">
+                        <ProjectConstellationSection />
+                    </section>
+
+                    <section id="skills">
+                        <SkillsHarmonySection />
+                    </section>
+
+                    <section id="musician">
+                        <MusicianSection />
+                    </section>
+
+                    <section id="contact">
+                        <ContactSection />
+                    </section>
                 </main>
 
                 <div
