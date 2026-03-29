@@ -159,7 +159,7 @@ export function AIPhilosophySection() {
                             r="4"
                             fill="#00D1FF"
                             style={{
-                                offsetPath: "path('M300 250 C450 200, 550 200, 650 250 C750 300, 900 300, 1050 250')"
+                                offsetPath: "path('M300 250 C450 200, 550 200, 650 250 C750 300, 900 300, 1000 280')"
                             }}
                             animate={{
                                 offsetDistance: ["0%", "100%"]
