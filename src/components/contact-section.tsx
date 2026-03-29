@@ -290,9 +290,10 @@ export function ContactSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05, y: -5 }}
-                        className="p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-[#00D1FF]/10 to-transparent 
-                       border border-[#00D1FF]/30 hover:border-[#00D1FF] transition-all duration-300 group"
-                        data-cursor="coin"
+                        className="p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-[#00D1FF]/10 via-[#00D1FF]/5 to-transparent 
+border border-[#00D1FF]/30 hover:border-[#00D1FF] 
+hover:shadow-[0_0_25px_rgba(0,209,255,0.25)]
+transition-all duration-300 group relative overflow-hidden transform-gpu"
                     >
                         <SiGithub className="text-[#00D1FF] mb-4 group-hover:scale-110 transition-transform" size={32} />
                         <h3 className="text-xl text-white mb-2">GitHub</h3>
@@ -304,11 +305,12 @@ export function ContactSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05, y: -5 }}
-                        className="p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-transparent 
-                       border border-purple-500/30 hover:border-purple-500 transition-all duration-300 group"
-                        data-cursor="graph"
+                        className="p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-[#0A66C2]/10 via-[#0A66C2]/5 to-transparent 
+border border-[#0A66C2]/30 hover:border-[#0A66C2] 
+hover:shadow-[0_0_25px_rgba(10,102,194,0.25)]
+transition-all duration-300 group relative overflow-hidden transform-gpu"
                     >
-                        <Linkedin className="text-purple-400 mb-4 group-hover:scale-110 transition-transform" size={32} />
+                        <Linkedin className="text-[#0A66C2] mb-4 group-hover:scale-110 transition-transform" size={32}/>
                         <h3 className="text-xl text-white mb-2">LinkedIn</h3>
                         <p className="text-white/60 text-sm font-mono">Connect</p>
                     </motion.a>
@@ -320,9 +322,10 @@ export function ContactSection() {
                         whileHover={{ scale: 1.05, y: -5 }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        className="p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-white/5 to-transparent 
-    border border-white/10 hover:border-white/40 
-    transition-all duration-300 group relative overflow-hidden transform-gpu"
+                        className="p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-white/10 via-white/5 to-transparent 
+border border-white/20 hover:border-white/50 
+hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]
+transition-all duration-300 group relative overflow-hidden transform-gpu"
                     >
                         <div className="absolute inset-0 pointer-events-none bg-white/0 group-hover:bg-white/5 transition duration-300" />
 
@@ -347,14 +350,16 @@ export function ContactSection() {
                         whileHover={{ scale: 1.05, y: -5 }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        className="p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-transparent 
-    border border-pink-500/30 hover:border-pink-400 
-    transition-all duration-300 group relative overflow-hidden transform-gpu"
+                        className="p-6 rounded-2xl backdrop-blur-xl 
+bg-gradient-to-br from-[#F58529]/10 via-[#DD2A7B]/10 to-[#8134AF]/10 
+border border-[#DD2A7B]/30 hover:border-[#DD2A7B] 
+hover:shadow-[0_0_25px_rgba(221,42,123,0.25)]
+transition-all duration-300 group relative overflow-hidden transform-gpu"
                     >
                         <div className="absolute inset-0 pointer-events-none bg-pink-500/0 group-hover:bg-pink-500/5 transition duration-300" />
 
                         <SiInstagram
-                            className="text-pink-400 mb-4 transition-transform duration-300 group-hover:scale-110 pointer-events-none"
+                            className="text-[#DD2A7B] mb-4 group-hover:scale-110 transition-transform"
                             size={32}
                         />
 
@@ -465,9 +470,10 @@ export function ContactSection() {
                                 name="email"
                                 type="email"
                                 placeholder="Your Email"
-                                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 
-                         text-white placeholder:text-white/30 focus:border-[#00D1FF] 
-                         focus:outline-none transition-all"
+                                className="p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-[#FFDF00]/10 via-[#FFDF00]/5 to-transparent 
+border border-[#FFDF00]/30 hover:border-[#FFDF00] 
+hover:shadow-[0_0_25px_rgba(255,223,0,0.25)]
+transition-all duration-300 group relative overflow-hidden transform-gpu"
                             />
                             <textarea
                                 name="message"
