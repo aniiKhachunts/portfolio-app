@@ -78,10 +78,6 @@ export function ContactSection() {
         setMessages((prev) => [...prev, { role: 'user', text: input }]);
         setCommand('');
 
-        const openContact = () => {
-            window.setTimeout(() => setShowModal(true), 700);
-        };
-
         const openGithub = () => {
             window.setTimeout(() => window.open('https://github.com/aniiKhachunts', '_blank', 'noopener,noreferrer'), 700);
         };
