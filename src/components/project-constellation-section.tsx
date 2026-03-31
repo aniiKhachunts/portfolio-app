@@ -188,28 +188,6 @@ export function ProjectConstellationSection() {
                 </div>
 
                 <div className="relative h-[1100px] max-w-[1400px] mx-auto">
-
-                    {/* CORE */}
-                    {/* <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                        <motion.div
-                            animate={{
-                                boxShadow: [
-                                    '0 0 40px rgba(255,223,0,0.4)',
-                                    '0 0 80px rgba(0,209,255,0.4)',
-                                    '0 0 40px rgba(255,223,0,0.4)',
-                                ],
-                            }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                            className="relative w-32 h-32 rounded-full bg-gradient-to-br from-[#FFDF00]/20 to-[#00D1FF]/20 flex items-center justify-center border border-white/20"
-                        >
-                            <motion.div
-                                animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.8, 0.3] }}
-                                transition={{ duration: 3, repeat: Infinity }}
-                                className="absolute w-40 h-40 bg-[#00D1FF]/20 rounded-full blur-3xl"
-                            />
-                            <Sparkles />
-                        </motion.div>
-                    </div> */}
                      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
                         <motion.div
                             animate={{
