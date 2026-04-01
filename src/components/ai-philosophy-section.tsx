@@ -1,17 +1,17 @@
-import { motion } from 'motion/react';
-import { useInView } from 'motion/react';
-import { useRef } from 'react';
-import { Brain, Code2, Rocket } from 'lucide-react';
+import { motion } from 'motion/react'
+import { useInView } from 'motion/react'
+import { useId, useRef } from 'react'
+import { Brain, Code2, Rocket } from 'lucide-react'
 
 export function AIPhilosophySection() {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const ref = useRef(null)
+    const isInView = useInView(ref, { once: true, margin: '-100px' })
+    const flowId = useId()
+    const motionPathId = useId()
 
     return (
         <section ref={ref} className="min-h-screen pt-32 px-6 pb-12 md:px-12 relative overflow-hidden">
             <div className="max-w-7xl mx-auto relative">
-
-                {/* HEADER */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -29,22 +29,19 @@ export function AIPhilosophySection() {
                         <br />
                         bridging the gap between{' '}
                         <span className="text-[#FFDF00]">creative vision</span>{' '}
-                        and{' '}
+                        and
                         <br />
                         <span className="text-[#00D1FF]">structured engineering</span>.
                     </p>
                 </motion.div>
 
-                {/* GRID */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center relative">
-
-                    {/* IDEA */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.8 }}
                         whileHover={{ scale: 1.03 }}
-                        className="p-8 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 hover:border-[#FFDF00]/40 transition-all"
+                        className="p-8 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 hover:border-[#FFDF00]/40 transition-all relative z-10"
                     >
                         <div className="flex items-center gap-4 mb-4">
                             <Brain className="text-[#FFDF00]" size={24} />
@@ -60,21 +57,18 @@ export function AIPhilosophySection() {
                             <div className="text-white/80">
                                 const goal = <span className="text-green-400">"High-end UX"</span>;
                             </div>
-
                             <div className="text-white/80 mt-1">
                                 const direction = <span className="text-green-400">"Interactive + Scalable"</span>;
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* SYSTEM CORE */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 1 }}
-                        className="relative flex flex-col items-center justify-center text-center rounded-3xl backdrop-blur-xl bg-white/5 border border-[#00D1FF]/30 px-6 py-10"
+                        className="relative flex flex-col items-center justify-center text-center rounded-3xl backdrop-blur-xl bg-white/5 border border-[#00D1FF]/30 px-6 py-10 z-10"
                     >
-                        {/* PULSE */}
                         <motion.div
                             animate={{ scale: [1, 1.3, 1], opacity: [0.4, 1, 0.4] }}
                             transition={{ duration: 3, repeat: Infinity }}
@@ -92,13 +86,12 @@ export function AIPhilosophySection() {
                         </p>
                     </motion.div>
 
-                    {/* PRODUCT */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.8, delay: 0.2 }}
                         whileHover={{ scale: 1.03 }}
-                        className="p-8 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 hover:border-green-400/40 transition-all"
+                        className="p-8 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 hover:border-green-400/40 transition-all relative z-10"
                     >
                         <div className="flex items-center gap-4 mb-4">
                             <Rocket className="text-green-400" size={24} />
@@ -116,69 +109,73 @@ export function AIPhilosophySection() {
                             <div className="p-3 rounded-lg bg-[#00D1FF]/10 border border-[#00D1FF]/20 text-xs text-white/70">
                                 ✔ Clean architecture
                             </div>
-
                             <div className="p-3 rounded-lg bg-[#FFDF00]/10 border border-[#FFDF00]/20 text-xs text-white/70">
                                 ✔ Premium UI & interactions
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* FLOW LINES */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none">
+                    <svg
+                        className="absolute inset-0 w-full h-full pointer-events-none z-10"
+                        viewBox="0 0 1200 420"
+                        preserveAspectRatio="none"
+                    >
                         <defs>
-                            <linearGradient id="flow" x1="0%" y1="0%" x2="100%">
+                            <linearGradient id={flowId} x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stopColor="#FFDF00" />
-                                <stop offset="70%" stopColor="#00D1FF" />
+                                <stop offset="70%" stopColor="#8BFF7A" />
+                                <stop offset="100%" stopColor="#00D1FF" />
                             </linearGradient>
+
+                            <path
+                                id={motionPathId}
+                                d="M 280 330
+   C 410 285, 500 285, 600 325
+   S 825 405, 930 380"
+                            />
                         </defs>
 
-                        {/* LEFT → CENTER */}
                         <motion.path
-                            d="M300 250 C450 200, 550 200, 650 250"
-                            stroke="url(#flow)"
-                            strokeWidth="2"
+                            d="M 280 330
+   C 410 285, 500 285, 600 325"
+                            stroke={`url(#${flowId})`}
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
                             fill="none"
                             initial={{ pathLength: 0, opacity: 0 }}
                             animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
-                            transition={{ duration: 1.5 }}
+                            transition={{ duration: 1.2 }}
                         />
 
-                        {/* CENTER → RIGHT */}
                         <motion.path
-                            d="M650 250 C750 300, 900 300, 1000 280"
-                            stroke="url(#flow)"
-                            strokeWidth="2"
+                            d="M 600 325
+   C 700 365, 820 405, 930 380"
+                            stroke={`url(#${flowId})`}
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
                             fill="none"
                             initial={{ pathLength: 0, opacity: 0 }}
                             animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
-                            transition={{ duration: 1.5, delay: 0.3 }}
+                            transition={{ duration: 1.2, delay: 0.2 }}
                         />
 
-                        {/* PARTICLE */}
-                        <motion.circle
-                            r="4"
-                            fill="#00D1FF"
-                            style={{
-                                offsetPath: "path('M300 250 C450 200, 550 200, 650 250 C750 300, 900 300, 1000 280')"
-                            }}
-                            animate={{
-                                offsetDistance: ["0%", "100%"]
-                            }}
-                            transition={{
-                                duration: 3,
-                                repeat: Infinity,
-                                ease: "linear"
-                            }}
-                        />
+                        <g opacity={isInView ? 1 : 0}>
+                            <circle r="5" fill="#00D1FF">
+                                <animateMotion
+                                    dur="3.2s"
+                                    repeatCount="indefinite"
+                                    rotate="auto"
+                                >
+                                    <mpath href={`#${motionPathId}`} />
+                                </animateMotion>
+                            </circle>
+                        </g>
                     </svg>
-
                 </div>
-
             </div>
 
-            {/* BACKGROUND */}
             <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-[#00D1FF]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-[#FFDF00]/5 rounded-full blur-3xl" />
         </section>
-    );
+    )
 }
