@@ -116,7 +116,7 @@ export function AIPhilosophySection() {
                     </motion.div>
 
                     <svg
-                        className="absolute inset-0 w-full h-full pointer-events-none z-10"
+                        className="hidden md:block absolute inset-0 w-full h-full pointer-events-none z-10"
                         viewBox="0 0 1200 420"
                         preserveAspectRatio="none"
                     >
@@ -167,6 +167,52 @@ export function AIPhilosophySection() {
                                     rotate="auto"
                                 >
                                     <mpath href={`#${motionPathId}`} />
+                                </animateMotion>
+                            </circle>
+                        </g>
+                    </svg>
+
+                    <svg
+                        className="md:hidden absolute inset-y-0 left-0 w-[120px] h-full pointer-events-none z-10"
+                        viewBox="0 0 120 700"
+                        preserveAspectRatio="none"
+                    >
+                        <defs>
+                            <linearGradient id="flowMobile" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#FFDF00" stopOpacity="0.7" />
+                                <stop offset="100%" stopColor="#00D1FF" stopOpacity="0.4" />
+                            </linearGradient>
+
+                            <path
+                                id="mobilePath"
+                                d="M80 140
+               C40 220, 100 280, 80 360
+               S40 520, 80 620"
+                            />
+                        </defs>
+
+                        {/* LINE */}
+                        <motion.path
+                            d="M80 140
+           C40 220, 100 280, 80 360
+           S40 520, 80 620"
+                            stroke="url(#flowMobile)"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            fill="none"
+                            style={{
+                                filter: 'drop-shadow(0 0 6px rgba(0,209,255,0.35))'
+                            }}
+                            initial={{ pathLength: 0, opacity: 0 }}
+                            animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
+                            transition={{ duration: 1.2 }}
+                        />
+
+                        {/* DOT */}
+                        <g opacity={isInView ? 1 : 0}>
+                            <circle r="4" fill="#00D1FF" opacity="0.8">
+                                <animateMotion dur="3.5s" repeatCount="indefinite" rotate="auto">
+                                    <mpath href="#mobilePath" xlinkHref="#mobilePath" />
                                 </animateMotion>
                             </circle>
                         </g>
