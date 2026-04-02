@@ -11,6 +11,7 @@ export function HeroSection() {
     const [, setLeftH] = useState<number | null>(null)
     const [railH, setRailH] = useState<number>(0)
     const [active, setActive] = useState<string>("")
+    const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
         const el = leftRef.current
@@ -51,6 +52,10 @@ export function HeroSection() {
 
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
+
+    useEffect(() => {
+        document.body.style.overflow = menuOpen ? "hidden" : "auto"
+    }, [menuOpen])
 
     const navItems = [
         { label: "Philosophy", id: "philosophy" },
@@ -144,11 +149,72 @@ export function HeroSection() {
                         </motion.a>
                     </div>
 
-                    <div className="ml-auto md:hidden text-white/60">
-                        <Menu size={24} />
+                    <div
+                        className="ml-auto md:hidden text-white/70 cursor-pointer z-[60]"
+                        onClick={() => setMenuOpen(true)}
+                    >
+                        <Menu size={26} />
                     </div>
                 </div>
             </motion.nav>
+
+            {menuOpen && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0 z-[55] bg-black/80 backdrop-blur-md flex flex-col items-center justify-center gap-8"
+                    onClick={() => setMenuOpen(false)}
+                >
+                    <div
+                        className="absolute top-6 right-6 text-white/70"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        ✕
+                    </div>
+
+                    {navItems.map((item, index) => (
+                        <motion.a
+                            key={item.id}
+                            href={`#${item.id}`}
+                            onClick={() => setMenuOpen(false)}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className={`
+                    text-2xl font-mono tracking-[0.2em] uppercase
+                    transition-all duration-300
+                    ${active === item.id ? "text-white" : "text-white/60"}
+                `}
+                        >
+                            <span className="relative">
+                                {item.label}
+
+                                <span className="absolute inset-0 blur-xl bg-[#00D1FF]/30 opacity-0 group-hover:opacity-100 transition" />
+                            </span>
+                        </motion.a>
+                    ))}
+
+                    <motion.a
+                        href="/resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                        className="
+                mt-6 px-6 py-3 rounded-full
+                font-mono text-[11px] tracking-[0.2em]
+                text-white
+                bg-[#00D1FF]/10
+                border border-[#00D1FF]/30
+                shadow-[0_0_20px_rgba(0,209,255,0.3)]
+            "
+                    >
+                        RESUME
+                    </motion.a>
+                </motion.div>
+            )}
 
             <div className="absolute inset-0 z-10 pointer-events-none">
                 <ThreeScene />
