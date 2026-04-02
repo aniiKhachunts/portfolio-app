@@ -38,8 +38,8 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
                     className="mb-12"
                 >
                     <h1 className="text-6xl font-light mb-2">
-                        <span className="text-white">ANI</span>
-                        <span className="text-[#FFDF00]"> KHACHUNTS</span>
+                        <span className="font-mono text-white">ANI</span>
+                        <span className="font-mono text-[#FFDF00]"> KHACHUNTS</span>
                     </h1>
                     <p className="text-[#00D1FF] font-mono text-sm tracking-widest">
                         INITIALIZING SYSTEM
