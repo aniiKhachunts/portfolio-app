@@ -336,6 +336,7 @@ export function HeroSection({ menuOpen, setMenuOpen }: HeroSectionProps) {
                     </motion.a>
 
                 </div>
+
                 <div className="w-full max-w-6xl mx-auto h-full px-6 sm:px-10 lg:px-20">
                     <div
                         className="grid grid-cols-12 h-full grid-rows-[1fr] lg:grid-rows-[1fr_auto]"
@@ -363,7 +364,51 @@ export function HeroSection({ menuOpen, setMenuOpen }: HeroSectionProps) {
                             </div>
                         </div>
                     </div>
+                    <div className="
+    lg:hidden
+    absolute bottom-28 right-6
+    flex flex-col items-end gap-3
+    z-30 pointer-events-auto
+">
 
+                        <motion.a
+                            href="#contact"
+                            whileTap={{ scale: 0.96 }}
+                            className="
+            px-6 py-3 rounded-full
+            font-mono text-[10px] tracking-[0.25em] uppercase
+            text-white
+
+            backdrop-blur-xl
+            bg-[linear-gradient(135deg,rgba(255,223,0,0.15),rgba(255,223,0,0.05))]
+            border border-[#FFDF00]/40
+            shadow-[0_0_20px_rgba(255,223,0,0.25)]
+
+            active:scale-[0.98]
+        "
+                        >
+                            Let’s Talk
+                        </motion.a>
+
+                        <motion.a
+                            href="#projects"
+                            whileTap={{ scale: 0.96 }}
+                            className="
+            px-5 py-2 rounded-full
+            font-mono text-[10px] tracking-[0.2em] uppercase
+            text-white/70
+
+            border border-white/10
+            backdrop-blur-xl
+            bg-white/5
+
+            active:text-white
+        "
+                        >
+                            My Work
+                        </motion.a>
+
+                    </div>
                     <div className="flex justify-center text-center">
                         <motion.div
                             initial={{ opacity: 0 }}
