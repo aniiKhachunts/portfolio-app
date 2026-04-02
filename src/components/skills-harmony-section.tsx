@@ -25,7 +25,7 @@ export function SkillsHarmonySection() {
     ];
 
     return (
-        <section ref={ref} className="min-h-screen px-6 pb-12 md:px-12 relative overflow-hidden">
+        <section ref={ref} className="min-h-screen px-6 pt-32 sm:pt-0 pb-12 md:px-12 relative overflow-hidden">
             <div className="max-w-7xl mx-auto">
 
                 <motion.div

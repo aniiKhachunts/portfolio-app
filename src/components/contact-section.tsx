@@ -171,7 +171,7 @@ export function ContactSection() {
     };
 
     return (
-        <section ref={ref} className="min-h-screen py-32 px-6 relative overflow-hidden">
+        <section ref={ref} className="min-h-screen pt-0 pb-32 px-6 relative overflow-hidden">
             <div className="max-w-5xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
