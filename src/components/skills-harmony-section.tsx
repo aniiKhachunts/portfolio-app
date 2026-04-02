@@ -52,7 +52,7 @@ export function SkillsHarmonySection() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <div className="backdrop-blur-xl bg-gradient-to-br from-[#FFDF00]/10 to-transparent
-                            rounded-3xl p-8 border border-[#FFDF00]/30 hover:scale-[1.02] transition-all"
+                            rounded-3xl p-8 border border-[#FFDF00]/30 transition-all"
                             data-cursor="sun"
                         >
                             <div className="flex items-center gap-4 mb-8">
@@ -114,7 +114,7 @@ export function SkillsHarmonySection() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
                         <div className="backdrop-blur-xl bg-gradient-to-br from-[#00D1FF]/10 to-transparent
-                            rounded-3xl p-8 border border-[#00D1FF]/30 hover:scale-[1.02] transition-all"
+                            rounded-3xl p-8 border border-[#00D1FF]/30 transition-all"
                             data-cursor="graph"
                         >
                             <div className="flex items-center gap-4 mb-8">
