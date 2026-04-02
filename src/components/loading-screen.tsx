@@ -31,7 +31,6 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
             className="fixed inset-0 z-[10000] bg-black flex items-center justify-center"
         >
             <div className="text-center">
-                {/* Logo/Name */}
                 <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
@@ -47,7 +46,6 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
                     </p>
                 </motion.div>
 
-                {/* Progress Bar */}
                 <div className="w-80 mx-auto">
                     <div className="h-1 bg-white/10 rounded-full overflow-hidden mb-4">
                         <motion.div
@@ -64,7 +62,6 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
                     </div>
                 </div>
 
-                {/* Animated Dots */}
                 <div className="flex gap-2 justify-center mt-8">
                     {[0, 1, 2].map((i) => (
                         <motion.div

@@ -264,7 +264,6 @@ export function ContactSection() {
     transition-all duration-300 group relative overflow-hidden transform-gpu"
                         data-cursor="sun"
                     >
-                        {/* FIXED overlay */}
                         <div className="absolute inset-0 pointer-events-none bg-[#FFDF00]/0 group-hover:bg-[#FFDF00]/5 transition duration-300" />
 
                         <Mail

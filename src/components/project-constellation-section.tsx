@@ -123,11 +123,11 @@ export function ProjectConstellationSection() {
     }))
 
     const layout = [
-        { x: -40, y: -300 },   // top (slightly left, not centered)
-        { x: 340, y: -120 },   // right top (higher + further)
-        { x: 280, y: 220 },    // right bottom (closer inward)
-        { x: -320, y: 180 },   // left bottom (wider)
-        { x: -260, y: -60 },   // left top (closer to center)
+        { x: -40, y: -300 },
+        { x: 340, y: -120 },
+        { x: 280, y: 220 },
+        { x: -320, y: 180 },
+        { x: -260, y: -60 },
     ]
 
     const stars = useMemo(

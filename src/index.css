@@ -2,12 +2,10 @@
 @import './tailwind.css';
 @import './theme.css';
 
-/* Smooth scrolling */
 html {
     scroll-behavior: auto;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -25,7 +23,6 @@ html {
     background: linear-gradient(180deg, #00D1FF, #FFDF00);
 }
 
-/* Selection styling */
 ::selection {
     background-color: rgba(255, 223, 0, 0.3);
     color: #ffffff;
@@ -36,7 +33,6 @@ html {
     color: #ffffff;
 }
 
-/* Glassmorphism utilities */
 .glass {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -51,7 +47,6 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Prevent text selection on interactive elements */
 button,
 a {
     -webkit-user-select: none;

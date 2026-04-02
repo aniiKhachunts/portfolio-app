@@ -9,13 +9,11 @@ export function ScrollProgress() {
 
     return (
         <>
-            {/* Top progress bar */}
             <motion.div
                 className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FFDF00] via-[#00D1FF] to-[#FFDF00] origin-left z-[9999]"
                 style={{ scaleX }}
             />
 
-            {/* Side progress indicator */}
             <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
                 <div className="flex flex-col gap-4">
                     {['Hero', 'Philosophy', 'Projects', 'Skills', 'Music', 'Contact'].map((section, i) => {

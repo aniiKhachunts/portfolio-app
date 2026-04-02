@@ -63,7 +63,6 @@ export function HeroSection() {
         <section className="relative overflow-hidden bg-[#020617]" style={{ height: "var(--vv-h, 100svh)" }}>
             <Starfield />
 
-            {/* NAV */}
             <motion.nav
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -72,7 +71,6 @@ export function HeroSection() {
             >
                 <div className="relative flex items-center pointer-events-auto">
 
-                    {/* CENTER NAV */}
                     <div className="absolute left-1/2 -translate-x-1/2">
                         <div className="
                             hidden md:flex items-center gap-1 rounded-full
@@ -98,7 +96,6 @@ export function HeroSection() {
                                 >
                                     <span className="relative z-10">{item.label}</span>
 
-                                    {/* ACTIVE + HOVER GLOW */}
                                     <span
                                         className={`
             absolute inset-0 rounded-full
@@ -108,7 +105,6 @@ export function HeroSection() {
         `}
                                     />
 
-                                    {/* ACTIVE + HOVER BORDER */}
                                     <span
                                         className={`
             absolute inset-0 rounded-full
@@ -123,7 +119,6 @@ export function HeroSection() {
                         </div>
                     </div>
 
-                    {/* RIGHT BUTTON */}
                     <div className="ml-auto">
                         <motion.a
                             href="/resume.pdf"
@@ -149,23 +144,19 @@ export function HeroSection() {
                         </motion.a>
                     </div>
 
-                    {/* MOBILE */}
                     <div className="ml-auto md:hidden text-white/60">
                         <Menu size={24} />
                     </div>
                 </div>
             </motion.nav>
 
-            {/* BACKGROUND */}
             <div className="absolute inset-0 z-10 pointer-events-none">
                 <ThreeScene />
             </div>
 
-            {/* CONTENT */}
             <div className="relative z-20 h-full pointer-events-none">
                 <div className="hidden lg:flex absolute right-64 top-[75%] -translate-y-1/2 flex-col gap-4 pointer-events-auto">
 
-                    {/* PRIMARY CTA */}
                     <motion.a
                         href="#contact"
                         whileHover={{ scale: 1.06 }}
@@ -184,7 +175,6 @@ export function HeroSection() {
         "
                         data-cursor="sun"
                     >
-                        {/* glow layer */}
                         <span className="absolute inset-0 bg-[#FFDF00]/20 opacity-0 group-hover:opacity-100 blur-xl transition duration-500 pointer-events-none" />
 
                         <span className="relative z-10 flex items-center gap-3">
@@ -192,7 +182,6 @@ export function HeroSection() {
                         </span>
                     </motion.a>
 
-                    {/* SECONDARY CTA */}
                     <motion.a
                         href="#projects"
                         whileHover={{ scale: 1.05 }}

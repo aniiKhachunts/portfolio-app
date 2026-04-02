@@ -33,12 +33,10 @@ export function MusicianSection() {
             const bufferLength = analyserNode.frequencyBinCount;
             const dataArr = new Uint8Array(bufferLength);
 
-            // 🎵 CREATE AUDIO ELEMENT
             const audio = new Audio('/audio/violin.mp3');
             audio.crossOrigin = 'anonymous';
             audio.loop = false;
 
-            // 🎵 CONNECT TO AUDIO CONTEXT
             const source = ctx.createMediaElementSource(audio);
 
             const gainNode = ctx.createGain();
@@ -48,7 +46,6 @@ export function MusicianSection() {
             gainNode.connect(analyserNode);
             analyserNode.connect(ctx.destination);
 
-            // fade in
             gainNode.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 1);
 
             gainRef.current = gainNode;
@@ -91,12 +88,11 @@ export function MusicianSection() {
         }
     };
 
-    // Visualizer animation loop
     useEffect(() => {
         if (isPlaying && analyser && dataArray) {
             const draw = () => {
                 analyser.getByteFrequencyData(dataArray);
-                setTick(t => t + 1); // Trigger re-render to update bar heights
+                setTick(t => t + 1);
                 animationRef.current = requestAnimationFrame(draw);
             };
             draw();
@@ -122,7 +118,6 @@ export function MusicianSection() {
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    {/* Image Side */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -155,7 +150,6 @@ export function MusicianSection() {
                         </div>
                     </motion.div>
 
-                    {/* Audio Visualizer Side */}
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -186,7 +180,6 @@ export function MusicianSection() {
                                 </div>
                             </motion.button>
 
-                            {/* Frequency Visualizer - 64 bars for high horizontal density */}
                             <div className="mt-6 h-32 rounded-2xl bg-black/40 border border-[#FFDF00]/20 p-4 overflow-hidden">
                                 <div className="flex items-end justify-center h-full gap-[2px]">
                                     {Array.from({ length: 64 }).map((_, i) => (
