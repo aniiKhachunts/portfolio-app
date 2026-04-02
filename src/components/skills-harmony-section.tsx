@@ -46,8 +46,7 @@ export function SkillsHarmonySection() {
                     </p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-12 items-start relative">
-
+                <div className="grid md:grid-cols-2 gap-16 items-center relative">
                     {/* FRONTEND */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -56,7 +55,7 @@ export function SkillsHarmonySection() {
                     >
                         <div className="backdrop-blur-xl bg-gradient-to-br from-[#FFDF00]/10 to-transparent
                             rounded-3xl p-8 border border-[#FFDF00]/30 hover:scale-[1.02] transition-all"
-                             data-cursor="sun"
+                            data-cursor="sun"
                         >
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="p-4 rounded-2xl bg-[#FFDF00]/20 border border-[#FFDF00]/40">
@@ -120,7 +119,7 @@ export function SkillsHarmonySection() {
                     >
                         <div className="backdrop-blur-xl bg-gradient-to-br from-[#00D1FF]/10 to-transparent
                             rounded-3xl p-8 border border-[#00D1FF]/30 hover:scale-[1.02] transition-all"
-                             data-cursor="graph"
+                            data-cursor="graph"
                         >
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="p-4 rounded-2xl bg-[#00D1FF]/20 border border-[#00D1FF]/40">
@@ -173,55 +172,112 @@ export function SkillsHarmonySection() {
 
                     {/* 🔥 ENHANCED HARMONY FLOW */}
                     <motion.div
-                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-                        initial={{ opacity: 0 }}
-                        animate={isInView ? { opacity: 1 } : {}}
-                        transition={{ duration: 1 }}
-                    >
-                        <svg width="260" height="420" className="hidden md:block">
-                            <defs>
-                                <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stopColor="#FFDF00" />
-                                    <stop offset="50%" stopColor="#00D1FF" />
-                                    <stop offset="100%" stopColor="#FFDF00" />
-                                </linearGradient>
-                            </defs>
+    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+    initial={{ opacity: 0 }}
+    animate={isInView ? { opacity: 1 } : {}}
+    transition={{ duration: 1 }}
+>
+    <svg width="260" height="420" className="hidden md:block">
+        <defs>
+            <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FFDF00" />
+                <stop offset="50%" stopColor="#00D1FF" />
+                <stop offset="100%" stopColor="#FFDF00" />
+            </linearGradient>
 
-                            <motion.path
-                                d="M 0 210 Q 130 80, 260 210 Q 130 340, 0 210"
-                                stroke="url(#flowGradient)"
-                                strokeWidth="3"
-                                fill="none"
-                                initial={{ pathLength: 0 }}
-                                animate={isInView ? { pathLength: 1 } : {}}
-                                transition={{ duration: 2 }}
-                            />
+            <path
+                id="desktopFlowPath"
+                d="M 0 210 Q 130 80, 260 210 Q 130 340, 0 210"
+            />
+        </defs>
 
-                            {/* PARTICLES */}
-                            {[0, 1, 2, 3].map((i) => (
-                                <motion.circle
-                                    key={i}
-                                    r="4"
-                                    fill={i % 2 === 0 ? "#FFDF00" : "#00D1FF"}
-                                    style={{
-                                        offsetPath: 'path("M 0 210 Q 130 80, 260 210 Q 130 340, 0 210")',
-                                    }}
-                                    animate={{ offsetDistance: ["0%", "100%"] }}
-                                    transition={{
-                                        duration: 4,
-                                        repeat: Infinity,
-                                        delay: i * 1,
-                                        ease: "linear",
-                                    }}
-                                />
-                            ))}
-                        </svg>
+        <motion.path
+            d="M 0 210 Q 130 80, 260 210 Q 130 340, 0 210"
+            stroke="url(#flowGradient)"
+            strokeWidth="3"
+            fill="none"
+            strokeLinecap="round"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
+            transition={{ duration: 2 }}
+        />
 
-                        {/* CENTER LABEL */}
-                        <div className="hidden md:block text-center mt-4 text-[10px] font-mono text-white/40">
-                            DATA FLOW
-                        </div>
-                    </motion.div>
+        {[0, 1, 2, 3].map((i) => (
+            <circle
+                key={i}
+                r="4"
+                fill={i % 2 === 0 ? "#FFDF00" : "#00D1FF"}
+            >
+                <animateMotion
+                    dur="4s"
+                    begin={`${i * 1}s`}
+                    repeatCount="indefinite"
+                    rotate="auto"
+                >
+                    <mpath href="#desktopFlowPath" />
+                </animateMotion>
+            </circle>
+        ))}
+    </svg>
+
+   <svg
+    width="200"
+    height="220"
+    viewBox="0 0 200 220"
+    className="block md:hidden overflow-visible"
+>
+    <defs>
+        <linearGradient id="flowGradientMobile" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#FFDF00" />
+            <stop offset="50%" stopColor="#00D1FF" />
+            <stop offset="100%" stopColor="#FFDF00" />
+        </linearGradient>
+
+        {/* 🔥 TRUE VERTICAL LOOP (NOT A LINE) */}
+        <path
+            id="mobileFlowPath"
+            d="M 100 20
+               Q 30 160, 100 300
+               Q 170 160, 100 20"
+        />
+    </defs>
+
+    <motion.path
+        d="M 100 20
+           Q 30 160, 100 300
+           Q 170 160, 100 20"
+        stroke="url(#flowGradientMobile)"
+        strokeWidth="2.5"
+        fill="none"
+        strokeLinecap="round"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
+        transition={{ duration: 1.8 }}
+    />
+
+    {/* 🔥 PARTICLES FOLLOW FULL LOOP */}
+    {[0, 1, 2].map((i) => (
+        <circle
+            key={i}
+            r="3.5"
+            fill={i % 2 === 0 ? "#FFDF00" : "#00D1FF"}
+        >
+            <animateMotion
+                dur="3.2s"
+                begin={`${i * 0.8}s`}
+                repeatCount="indefinite"
+                rotate="auto"
+            >
+                <mpath href="#mobileFlowPath" />
+            </animateMotion>
+        </circle>
+    ))}
+</svg>
+
+    <div className="hidden md:block text-center mt-4 text-[10px] font-mono text-white/40">
+        DATA FLOW
+    </div>
+</motion.div>
                 </div>
             </div>
 

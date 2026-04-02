@@ -173,7 +173,7 @@ export function AIPhilosophySection() {
                     </svg>
 
                     <svg
-                        className="md:hidden absolute inset-y-0 left-0 w-[120px] h-full pointer-events-none z-10"
+                        className="md:hidden absolute inset-y-0 -left-6 w-[100px] h-full pointer-events-none z-10"
                         viewBox="0 0 120 700"
                         preserveAspectRatio="none"
                     >
@@ -185,17 +185,16 @@ export function AIPhilosophySection() {
 
                             <path
                                 id="mobilePath"
-                                d="M80 140
-               C40 220, 100 280, 80 360
-               S40 520, 80 620"
+                                d="M60 140
+               C20 220, 80 280, 60 360
+               S20 520, 60 620"
                             />
                         </defs>
 
-                        {/* LINE */}
                         <motion.path
-                            d="M80 140
-           C40 220, 100 280, 80 360
-           S40 520, 80 620"
+                            d="M60 140
+           C20 220, 80 280, 60 360
+           S20 520, 60 620"
                             stroke="url(#flowMobile)"
                             strokeWidth="1.5"
                             strokeLinecap="round"
@@ -208,11 +207,10 @@ export function AIPhilosophySection() {
                             transition={{ duration: 1.2 }}
                         />
 
-                        {/* DOT */}
                         <g opacity={isInView ? 1 : 0}>
                             <circle r="4" fill="#00D1FF" opacity="0.8">
                                 <animateMotion dur="3.5s" repeatCount="indefinite" rotate="auto">
-                                    <mpath href="#mobilePath" xlinkHref="#mobilePath" />
+                                    <mpath href="#mobilePath" />
                                 </animateMotion>
                             </circle>
                         </g>

@@ -15,8 +15,8 @@ function ProjectCard({
 }: ProjectCardProps) {
     const [isHovered, setIsHovered] = useState(false)
 
-    const x = Math.cos((angle * Math.PI) / 180) * distance
-    const y = Math.sin((angle * Math.PI) / 180) * distance
+    const x = angle
+    const y = distance
 
     return (
         <div
@@ -25,23 +25,23 @@ function ProjectCard({
                 left: '50%',
                 top: '50%',
                 transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
-                zIndex: 50
+                zIndex: isHovered ? 100 : 50
             }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <motion.div
-                animate={{ scale: isHovered ? 1.08 : 1 }}
+                animate={{ scale: isHovered ? 1.06 : 1 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 20 }}
             >
                 <div
-                    className="w-[360px] p-6 rounded-2xl border backdrop-blur-xl"
+                    className="w-[300px] p-6 rounded-2xl border backdrop-blur-xl"
                     style={{
                         background: 'rgba(255,255,255,0.03)',
                         borderColor: `${color}40`,
                         boxShadow: isHovered
-                            ? `0 0 50px ${color}40`
-                            : `0 0 15px ${color}20`
+                            ? `0 0 60px ${color}30`
+                            : `0 0 20px ${color}15`
                     }}
                 >
                     <h3 className="text-xl font-bold mb-2" style={{ color }}>
@@ -122,9 +122,13 @@ export function ProjectConstellationSection() {
         repo: p.repo
     }))
 
-    const count = formattedProjects.length
-    const angleStep = 360 / count
-    const radius = 380
+    const layout = [
+        { x: -40, y: -300 },   // top (slightly left, not centered)
+        { x: 340, y: -120 },   // right top (higher + further)
+        { x: 280, y: 220 },    // right bottom (closer inward)
+        { x: -320, y: 180 },   // left bottom (wider)
+        { x: -260, y: -60 },   // left top (closer to center)
+    ]
 
     const stars = useMemo(
         () =>
@@ -138,33 +142,25 @@ export function ProjectConstellationSection() {
     )
 
     return (
-        <section
-            ref={ref}
-            className="pt-20 pb-32 px-5 relative overflow-hidden"
-        >
-            {/* STARS */}
-            < div className="absolute inset-0 pointer-events-none z-0">
-                {
-                    stars.map((star, i) => (
-                        <motion.div
-                            key={i}
-                            className="absolute w-1 h-1 bg-white rounded-full"
-                            style={{ left: star.left, top: star.top }}
-                            animate={{ opacity: [0.2, 1, 0.2] }}
-                            transition={{
-                                duration: star.duration,
-                                repeat: Infinity,
-                                delay: star.delay
-                            }}
-                        />
-                    ))
-                }
-            </div >
+        <section ref={ref} className="pt-32 pb-32 px-5 relative overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none z-0">
+                {stars.map((star, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute w-1 h-1 bg-white rounded-full"
+                        style={{ left: star.left, top: star.top }}
+                        animate={{ opacity: [0.2, 1, 0.2] }}
+                        transition={{
+                            duration: star.duration,
+                            repeat: Infinity,
+                            delay: star.delay
+                        }}
+                    />
+                ))}
+            </div>
 
             <div className="relative z-10">
-
-                {/* TITLE (fixed alignment) */}
-                <div className="text-center mb-14 md:mb-20 px-2">
+                <div className="text-center mb-16">
                     <h2 className="font-mono leading-tight">
                         <span className="block text-white text-3xl md:text-7xl">
                             Project
@@ -175,40 +171,27 @@ export function ProjectConstellationSection() {
                     </h2>
                 </div>
 
-                <div className="relative max-w-[1200px] mx-auto">
+                <div className="relative max-w-[1200px] mx-auto h-[950px]">
 
-                    {/* MOBILE — CLEAN STACK */}
                     {isMobile ? (
                         <div className="flex flex-col items-center gap-6">
-
                             {formattedProjects.map((project, index) => (
                                 <motion.div
                                     key={project.title}
-                                    initial={{ opacity: 0, y: 50 }}
+                                    initial={{ opacity: 0, y: 40 }}
                                     animate={ready ? { opacity: 1, y: 0 } : {}}
                                     transition={{ delay: index * 0.1 }}
-                                    whileTap={{ scale: 0.98 }}
                                     className="w-full max-w-[360px]"
                                 >
                                     <div
-                                        className="p-5 rounded-2xl border backdrop-blur-xl"
+                                        className="p-5 rounded-2xl border backdrop-blur-xs"
                                         style={{
-                                            background: `
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,0.03),
-            rgba(0,0,0,0.45)
-        )
-    `,
+                                            background: 'rgba(255,255,255,0.03)',
                                             borderColor: `${project.color}30`,
-                                            boxShadow: `0 0 40px ${project.color}20`
+                                            boxShadow: `0 0 30px ${project.color}15`
                                         }}
-
                                     >
-                                        <h3
-                                            className="text-lg font-bold mb-1"
-                                            style={{ color: project.color }}
-                                        >
+                                        <h3 className="text-lg font-bold mb-1" style={{ color: project.color }}>
                                             {project.title}
                                         </h3>
 
@@ -225,48 +208,17 @@ export function ProjectConstellationSection() {
                                         <p className="text-white/60 text-sm mb-4">
                                             {project.description}
                                         </p>
-
-                                        <div className="flex gap-2">
-                                            {project.live && (
-                                                <a
-                                                    href={project.live}
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                    className="px-3 py-1.5 text-xs font-mono rounded-full border"
-                                                    style={{
-                                                        background: `${project.color}14`,
-                                                        borderColor: `${project.color}50`,
-                                                        color: project.color
-                                                    }}
-                                                >
-                                                    Live
-                                                </a>
-                                            )}
-
-                                            {project.repo && (
-                                                <a
-                                                    href={project.repo}
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                    className="px-3 py-1.5 text-xs font-mono rounded-full border border-white/15 text-white/75"
-                                                >
-                                                    Code
-                                                </a>
-                                            )}
-                                        </div>
                                     </div>
                                 </motion.div>
                             ))}
                         </div>
                     ) : (
                         <>
-                            {/* DESKTOP (unchanged constellation) */}
-
-                            <div className="flex justify-center mb-16 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-20">
-                                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full backdrop-blur-xl bg-gradient-to-br from-[#FFDF00]/20 to-[#00D1FF]/20 border border-white/30 flex items-center justify-center">
+                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                                <div className="w-32 h-32 rounded-full backdrop-blur-xl bg-gradient-to-br from-[#FFDF00]/20 to-[#00D1FF]/20 border border-white/30 flex items-center justify-center">
                                     <div className="text-center">
                                         <Sparkles />
-                                        <div className="text-[10px] md:text-xs text-white mt-1 font-mono">
+                                        <div className="text-xs text-white mt-1 font-mono">
                                             MY CREATION
                                         </div>
                                     </div>
@@ -275,49 +227,44 @@ export function ProjectConstellationSection() {
 
                             <svg
                                 className="absolute left-1/2 top-1/2 pointer-events-none z-10"
-                                width={radius * 2}
-                                height={radius * 2}
-                                viewBox={`${-radius} ${-radius} ${radius * 2} ${radius * 2}`}
+                                width={800}
+                                height={800}
+                                viewBox="-400 -400 800 800"
                                 style={{ transform: 'translate(-50%, -50%)' }}
                             >
-                                {formattedProjects.map((_, index) => {
-                                    const angle = index * angleStep
-                                    const x = Math.cos((angle * Math.PI) / 180) * radius
-                                    const y = Math.sin((angle * Math.PI) / 180) * radius
-
-                                    return (
-                                        <motion.line
-                                            key={index}
-                                            x1={0}
-                                            y1={0}
-                                            x2={x}
-                                            y2={y}
-                                            stroke="rgba(255,255,255,0.35)"
-                                            strokeWidth="1.5"
-                                            initial={{ pathLength: 0, opacity: 0 }}
-                                            animate={ready ? { pathLength: 1, opacity: 1 } : {}}
-                                            transition={{
-                                                duration: 1.2,
-                                                delay: index * 0.2
-                                            }}
-                                        />
-                                    )
-                                })}
+                                {layout.map((pos, index) => (
+                                    <motion.line
+                                        key={index}
+                                        x1={0}
+                                        y1={0}
+                                        x2={pos.x}
+                                        y2={pos.y}
+                                        stroke="rgba(255,255,255,0.35)"
+                                        strokeWidth="1.5"
+                                        initial={{ pathLength: 0, opacity: 0 }}
+                                        animate={ready ? { pathLength: 1, opacity: 1 } : {}}
+                                        transition={{ duration: 1, delay: index * 0.15 }}
+                                    />
+                                ))}
                             </svg>
 
                             {ready &&
-                                formattedProjects.map((project, index) => (
-                                    <ProjectCard
-                                        key={project.title}
-                                        {...project}
-                                        angle={index * angleStep}
-                                        distance={radius}
-                                    />
-                                ))}
+                                formattedProjects.map((project, index) => {
+                                    const pos = layout[index]
+
+                                    return (
+                                        <ProjectCard
+                                            key={project.title}
+                                            {...project}
+                                            angle={pos.x}
+                                            distance={pos.y}
+                                        />
+                                    )
+                                })}
                         </>
                     )}
                 </div>
             </div>
-        </section >
+        </section>
     )
 }
