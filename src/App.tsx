@@ -13,6 +13,8 @@ import { useLenisScroll } from './hooks/useLenisScroll';
 
 export default function App() {
     const [isLoading, setIsLoading] = useState(true);
+    const [menuOpen, setMenuOpen] = useState(false);
+
     useLenisScroll();
 
     useEffect(() => {
@@ -28,12 +30,12 @@ export default function App() {
         <>
             <CustomCursor />
             <div className="min-h-screen bg-black text-white overflow-x-hidden">
-                <ScrollProgress />
+                {!menuOpen && <ScrollProgress />}
                 <ScrollToTop />
 
                 <main>
                     <section id="hero">
-                        <HeroSection />
+                        <HeroSection menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
                     </section>
 
                     <section id="philosophy">

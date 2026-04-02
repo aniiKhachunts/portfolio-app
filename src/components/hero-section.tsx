@@ -4,14 +4,13 @@ import Starfield from "./Starfield.tsx"
 import { ChevronDown, Menu } from "lucide-react"
 import { motion } from "motion/react"
 
-export function HeroSection() {
+export function HeroSection({ menuOpen, setMenuOpen }) {
     const leftRef = useRef<HTMLDivElement | null>(null)
     const railRef = useRef<HTMLDivElement | null>(null)
 
     const [, setLeftH] = useState<number | null>(null)
     const [railH, setRailH] = useState<number>(0)
     const [active, setActive] = useState<string>("")
-    const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
         const el = leftRef.current
@@ -54,7 +53,21 @@ export function HeroSection() {
     }, [])
 
     useEffect(() => {
-        document.body.style.overflow = menuOpen ? "hidden" : "auto"
+        if (menuOpen) {
+            document.body.style.overflow = "hidden"
+            document.body.style.position = "fixed"
+            document.body.style.width = "100%"
+            document.body.style.top = `-${window.scrollY}px`
+        } else {
+            const scrollY = document.body.style.top
+            document.body.style.overflow = ""
+            document.body.style.position = ""
+            document.body.style.width = ""
+            document.body.style.top = ""
+            if (scrollY) {
+                window.scrollTo(0, parseInt(scrollY || "0") * -1)
+            }
+        }
     }, [menuOpen])
 
     const navItems = [
@@ -160,10 +173,14 @@ export function HeroSection() {
 
             {menuOpen && (
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    initial={{ scale: 0.96 }}
+                    animate={{ scale: 1 }}
+                    transition={{
+                        duration: 0.22,
+                        ease: [0.25, 1, 0.5, 1]
+                    }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-[55] bg-black/80 backdrop-blur-md flex flex-col items-center justify-center gap-8"
+                    className="fixed inset-0 z-[55] bg-black/90 backdrop-blur-sm flex flex-col items-center justify-center gap-8"
                     onClick={() => setMenuOpen(false)}
                 >
                     <div
@@ -178,9 +195,13 @@ export function HeroSection() {
                             key={item.id}
                             href={`#${item.id}`}
                             onClick={() => setMenuOpen(false)}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{
+                                duration: 0.22,
+                                delay: index * 0.04,
+                                ease: "easeOut"
+                            }}
                             className={`
                     text-2xl font-mono tracking-[0.2em] uppercase
                     transition-all duration-300
