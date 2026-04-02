@@ -96,6 +96,35 @@ function ProjectCard({
     )
 }
 
+function Typewriter({
+    text,
+    delay = 0,
+    speed = 20,
+    className = ''
+}: {
+    text: string
+    delay?: number
+    speed?: number
+    className?: string
+}) {
+    const [displayed, setDisplayed] = useState('')
+
+    useEffect(() => {
+        let i = 0
+        const start = setTimeout(() => {
+            const interval = setInterval(() => {
+                i++
+                setDisplayed(text.slice(0, i))
+                if (i >= text.length) clearInterval(interval)
+            }, speed)
+        }, delay)
+
+        return () => clearTimeout(start)
+    }, [text, delay, speed])
+
+    return <span className={className}>{displayed}</span>
+}
+
 export function ProjectConstellationSection() {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, margin: '-200px' })
@@ -180,7 +209,7 @@ export function ProjectConstellationSection() {
                                     key={project.title}
                                     initial={{ opacity: 0, y: 40 }}
                                     animate={ready ? { opacity: 1, y: 0 } : {}}
-                                    transition={{ delay: index * 0.1 }}
+                                    transition={{ delay: index * 0.12 }}
                                     className="w-full max-w-[360px]"
                                 >
                                     <div
@@ -191,11 +220,26 @@ export function ProjectConstellationSection() {
                                             boxShadow: `0 0 30px ${project.color}15`
                                         }}
                                     >
-                                        <h3 className="text-lg font-bold mb-1" style={{ color: project.color }}>
-                                            {project.title}
-                                        </h3>
+                                        <motion.h3
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={ready ? { opacity: 1, y: 0 } : {}}
+                                            transition={{ delay: index * 0.1 }}
+                                            className="text-lg font-bold mb-1"
+                                            style={{ color: project.color }}
+                                        >
+                                            <h3 className="text-lg font-bold mb-1" style={{ color: project.color }}>
+                                                <Typewriter
+                                                    text={project.title}
+                                                    delay={index * 120}
+                                                    speed={50}
+                                                />
+                                            </h3>
+                                        </motion.h3>
 
-                                        <div
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={ready ? { opacity: 1, y: 0 } : {}}
+                                            transition={{ delay: index * 0.1 + 0.05 }}
                                             className="inline-block px-2 py-1 rounded-full text-xs mb-2"
                                             style={{
                                                 backgroundColor: `${project.color}20`,
@@ -203,11 +247,54 @@ export function ProjectConstellationSection() {
                                             }}
                                         >
                                             {project.badge}
-                                        </div>
+                                        </motion.div>
 
-                                        <p className="text-white/60 text-sm mb-4">
-                                            {project.description}
+                                        <p className="text-white/60 text-sm mb-4 min-h-[40px]">
+                                            <Typewriter
+                                                text={project.description}
+                                                delay={200 + index * 150}
+                                                speed={50}
+                                            />
                                         </p>
+
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={ready ? { opacity: 1, y: 0 } : {}}
+                                            transition={{ delay: index * 0.1 + 0.15 }}
+                                            className="flex gap-3"
+                                        >
+                                            {project.live && (
+                                                <a
+                                                    href={project.live}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className="px-3 py-1.5 text-xs font-mono rounded-full border"
+                                                    style={{
+                                                        background: 'rgba(0, 209, 255, 0.15)',
+                                                        borderColor: 'rgba(0, 209, 255, 0.4)',
+                                                        color: '#00D1FF'
+                                                    }}
+                                                >
+                                                    Live
+                                                </a>
+                                            )}
+
+                                            {project.repo && (
+                                                <a
+                                                    href={project.repo}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className="px-3 py-1.5 text-xs font-mono rounded-full border"
+                                                    style={{
+                                                        background: 'rgba(255, 223, 0, 0.15)',
+                                                        borderColor: 'rgba(255, 223, 0, 0.4)',
+                                                        color: '#FFDF00'
+                                                    }}
+                                                >
+                                                    Code
+                                                </a>
+                                            )}
+                                        </motion.div>
                                     </div>
                                 </motion.div>
                             ))}
