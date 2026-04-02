@@ -4,7 +4,54 @@ import Starfield from "./Starfield.tsx"
 import { ChevronDown, Menu } from "lucide-react"
 import { motion } from "motion/react"
 
-export function HeroSection({ menuOpen, setMenuOpen }) {
+type GlassButtonProps = {
+    children: React.ReactNode
+    onClick?: () => void
+}
+
+type HeroSectionProps = {
+    menuOpen: boolean
+    setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const GlassButton = ({ children, onClick }: GlassButtonProps) => (
+    <motion.button
+        onClick={onClick}
+        whileTap={{ scale: 0.94 }}
+        className="
+            relative flex items-center justify-center
+            w-[44px] h-[44px] rounded-full
+
+            text-white
+
+            backdrop-blur-lg
+            bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.04))]
+            border border-white/15
+
+            shadow-[0_8px_25px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.15)]
+
+            hover:border-[#00D1FF]/40
+            hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.06))]
+            hover:shadow-[0_0_20px_rgba(0,209,255,0.25)]
+
+            transition-all duration-300
+        "
+    >
+        <span className="
+            absolute inset-0 rounded-full
+            bg-[#00D1FF]/10 opacity-0
+            hover:opacity-100
+            blur-xl
+            transition duration-300
+        " />
+
+        <span className="relative z-10">
+            {children}
+        </span>
+    </motion.button>
+)
+
+export function HeroSection({ menuOpen, setMenuOpen }: HeroSectionProps) {
     const leftRef = useRef<HTMLDivElement | null>(null)
     const railRef = useRef<HTMLDivElement | null>(null)
 
@@ -162,11 +209,10 @@ export function HeroSection({ menuOpen, setMenuOpen }) {
                         </motion.a>
                     </div>
 
-                    <div
-                        className="ml-auto md:hidden text-white/70 cursor-pointer z-[60]"
-                        onClick={() => setMenuOpen(true)}
-                    >
-                        <Menu size={26} />
+                    <div className="ml-auto md:hidden z-[60]">
+                        <GlassButton onClick={() => setMenuOpen(true)}>
+                            <Menu size={20} />
+                        </GlassButton>
                     </div>
                 </div>
             </motion.nav>
@@ -183,11 +229,10 @@ export function HeroSection({ menuOpen, setMenuOpen }) {
                     className="fixed inset-0 z-[55] bg-black/90 backdrop-blur-sm flex flex-col items-center justify-center gap-8"
                     onClick={() => setMenuOpen(false)}
                 >
-                    <div
-                        className="absolute top-6 right-6 text-white/70"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        ✕
+                    <div className="absolute top-6 right-6 z-[60]">
+                        <GlassButton onClick={() => setMenuOpen(false)}>
+                            ✕
+                        </GlassButton>
                     </div>
 
                     {navItems.map((item, index) => (
