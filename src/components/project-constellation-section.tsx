@@ -100,17 +100,21 @@ function Typewriter({
     text,
     delay = 0,
     speed = 20,
-    className = ''
+    trigger
 }: {
     text: string
     delay?: number
     speed?: number
-    className?: string
+    trigger: boolean
 }) {
     const [displayed, setDisplayed] = useState('')
 
     useEffect(() => {
+        if (!trigger) return
+
+        setDisplayed('')
         let i = 0
+
         const start = setTimeout(() => {
             const interval = setInterval(() => {
                 i++
@@ -120,9 +124,9 @@ function Typewriter({
         }, delay)
 
         return () => clearTimeout(start)
-    }, [text, delay, speed])
+    }, [text, delay, speed, trigger])
 
-    return <span className={className}>{displayed}</span>
+    return <span>{displayed}</span>
 }
 
 export function ProjectConstellationSection() {
@@ -227,13 +231,20 @@ export function ProjectConstellationSection() {
                                             className="text-lg font-bold mb-1"
                                             style={{ color: project.color }}
                                         >
-                                            <h3 className="text-lg font-bold mb-1" style={{ color: project.color }}>
+                                            <motion.h3
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={ready ? { opacity: 1, y: 0 } : {}}
+                                                transition={{ delay: index * 0.1 }}
+                                                className="text-lg font-bold mb-1"
+                                                style={{ color: project.color }}
+                                            >
                                                 <Typewriter
                                                     text={project.title}
                                                     delay={index * 120}
-                                                    speed={50}
+                                                    speed={35}
+                                                    trigger={ready}
                                                 />
-                                            </h3>
+                                            </motion.h3>
                                         </motion.h3>
 
                                         <motion.div
@@ -253,7 +264,8 @@ export function ProjectConstellationSection() {
                                             <Typewriter
                                                 text={project.description}
                                                 delay={200 + index * 150}
-                                                speed={50}
+                                                speed={35}
+                                                trigger={ready}
                                             />
                                         </p>
 
