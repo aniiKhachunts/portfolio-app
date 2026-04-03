@@ -80,7 +80,7 @@ export function SkillsHarmonySection() {
                                             }}
                                             transition={{
                                                 duration: 1.5,
-                                                repeat: Infinity,
+                                                repeat: 999,
                                                 delay: i * 0.05,
                                             }}
                                         />

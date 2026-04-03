@@ -9,13 +9,10 @@ import { SkillsHarmonySection } from './components/skills-harmony-section';
 import { MusicianSection } from './components/musician-section';
 import { ContactSection } from './components/contact-section';
 import CustomCursor from './components/custom-cursor';
-import { useLenisScroll } from './hooks/useLenisScroll';
 
 export default function App() {
     const [isLoading, setIsLoading] = useState(true);
     const [menuOpen, setMenuOpen] = useState(false);
-
-    useLenisScroll();
 
     useEffect(() => {
         document.documentElement.classList.add('dark');

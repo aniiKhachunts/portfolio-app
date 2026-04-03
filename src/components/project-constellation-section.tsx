@@ -185,7 +185,7 @@ export function ProjectConstellationSection() {
                         animate={{ opacity: [0.2, 1, 0.2] }}
                         transition={{
                             duration: star.duration,
-                            repeat: Infinity,
+                            repeat: 999,
                             delay: star.delay
                         }}
                     />
@@ -231,20 +231,12 @@ export function ProjectConstellationSection() {
                                             className="text-lg font-bold mb-1"
                                             style={{ color: project.color }}
                                         >
-                                            <motion.h3
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={ready ? { opacity: 1, y: 0 } : {}}
-                                                transition={{ delay: index * 0.1 }}
-                                                className="text-lg font-bold mb-1"
-                                                style={{ color: project.color }}
-                                            >
-                                                <Typewriter
-                                                    text={project.title}
-                                                    delay={index * 120}
-                                                    speed={35}
-                                                    trigger={ready}
-                                                />
-                                            </motion.h3>
+                                            <Typewriter
+                                                text={project.title}
+                                                delay={index * 120}
+                                                speed={35}
+                                                trigger={ready}
+                                            />
                                         </motion.h3>
 
                                         <motion.div

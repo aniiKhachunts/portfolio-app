@@ -71,7 +71,7 @@ export function AIPhilosophySection() {
                     >
                         <motion.div
                             animate={{ scale: [1, 1.3, 1], opacity: [0.4, 1, 0.4] }}
-                            transition={{ duration: 3, repeat: Infinity }}
+                            transition={{ duration: 3, repeat: 999 }}
                             className="absolute w-40 h-40 bg-[#00D1FF]/20 rounded-full blur-3xl"
                         />
 

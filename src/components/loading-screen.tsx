@@ -73,7 +73,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
                             }}
                             transition={{
                                 duration: 1,
-                                repeat: Infinity,
+                                repeat: 999,
                                 delay: i * 0.2,
                             }}
                         />
