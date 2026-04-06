@@ -265,10 +265,6 @@ export function SkillsHarmonySection() {
                                 </circle>
                             ))}
                         </svg>
-
-                        <div className="hidden md:block text-center mt-4 text-[10px] font-mono text-white/40">
-                            DATA FLOW
-                        </div>
                     </motion.div>
                 </div>
             </div>

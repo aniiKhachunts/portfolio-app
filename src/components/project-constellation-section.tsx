@@ -165,7 +165,7 @@ export function ProjectConstellationSection() {
 
     const stars = useMemo(
         () =>
-            Array.from({ length: 40 }).map(() => ({
+            Array.from({ length: 30 }).map(() => ({
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 duration: 2 + Math.random() * 3,
