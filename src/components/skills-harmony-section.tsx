@@ -196,7 +196,7 @@ export function SkillsHarmonySection() {
                                 transition={{ duration: 2 }}
                             />
 
-                            {[0, 1, 2, 3].map((i) => (
+                            {[0, 1, 2].map((i: any) => (
                                 <circle
                                     key={i}
                                     r="4"

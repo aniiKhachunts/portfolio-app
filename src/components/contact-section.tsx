@@ -47,7 +47,7 @@ export function ContactSection() {
     const [command, setCommand] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [messages, setMessages] = useState<ChatMessage[]>([
-        { role: 'ai', text: 'Hi 👋 I’m Ani’s assistant.' },
+        { role: 'ai', text: 'Hi 👋 I’m Anithing - ask me anything about Ani.' },
         { role: 'ai', text: 'You can ask about projects, skills, or type “contact” to send a message.' }
     ]);
 
@@ -305,7 +305,7 @@ border border-[#0A66C2]/30 hover:border-[#0A66C2]
 hover:shadow-[0_0_25px_rgba(10,102,194,0.25)]
 transition-all duration-300 group relative overflow-hidden transform-gpu"
                     >
-                        <Linkedin className="text-[#0A66C2] mb-4 group-hover:scale-110 transition-transform" size={32}/>
+                        <Linkedin className="text-[#0A66C2] mb-4 group-hover:scale-110 transition-transform" size={32} />
                         <h3 className="text-xl text-white mb-2">LinkedIn</h3>
                         <p className="text-white/60 text-sm font-mono">Connect</p>
                     </motion.a>
@@ -465,7 +465,7 @@ transition-all duration-300 group relative overflow-hidden transform-gpu"
                                 name="email"
                                 type="email"
                                 placeholder="Your Email"
-                                className="p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-[#FFDF00]/10 via-[#FFDF00]/5 to-transparent 
+                                className="w-full p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-[#FFDF00]/10 via-[#FFDF00]/5 to-transparent 
 border border-[#FFDF00]/30 hover:border-[#FFDF00] 
 hover:shadow-[0_0_25px_rgba(255,223,0,0.25)]
 transition-all duration-300 group relative overflow-hidden transform-gpu"
